@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "browser-sync": "^2.26.3",
+    "clarify": "^2.1.0",
+    "del": "^3.0.0",
+    "gulp": "4.0.x",
+    "parcel-bundler": "^1.10.3"
+  },
+  "devDependencies": {
+    "pug": "^2.0.3",
+    "sass": "^1.15.2"
+  }
+}
