@@ -30,8 +30,8 @@ h1
   margin: 0px
 .header
   width: 1000px
-  margin: 30px
-  max-width: 100%
+  margin: 40px
+  max-width: calc(100% - 120px)
   align-items: center
   display: flex
   .logo
@@ -40,31 +40,90 @@ h1
     display: block
     // margin: 30px
     margin-right: auto
-  .nav-bar
+  .menu
     font-family: 'ffad-matro-regular'
-    margin-left: auto
     display: flex
     justify-content: flex-end
+    position: relative
+    user-select: none
     .nav-item
-      margin: 0px 10px
-      padding: 10px
-      cursor: pointer
-      position: relative
-      z-index: 2
-      outline: none
-      user-select: none
-      transition: 0.2s $transition all
-      opacity: 0.5
-      &.current-page
+      margin-right: 20px
+      &:hover > .text
+        opacity: 1
+      .text
+        // padding: 4px
+        cursor: pointer
+        white-space: nowrap
         background-image: linear-gradient(to right,#DA4453,#89216B)
         -webkit-background-clip: text
         -webkit-text-fill-color: transparent
-      &:active
+        outline: none
+        transition: 0.2s $transition all
+        font-size: 16px
+        filter: grayscale(100%)
+        opacity: 0.5
+        &:hover, &:focus
+          opacity: 1
+        &:active, &.current
+          filter: none
+          opacity: 1
+        // &.in-submenu
+      .submenu
+        opacity: 0
+        pointer-events: none
+        position: absolute
+        display: flex
+        transition: 0.2s $transition all
+        // transform: translateY(-10px)
+        .nav-item
+          margin-top: 10px
+          transform: scale(0.7)
+          font-size: 14px
+      &:hover .submenu
+        transform: none
         opacity: 1
+        pointer-events: all
+        .nav-item
+          transform: scale(1)
+
+      
+  // .nav-bar
+  //   font-family: 'ffad-matro-regular'
+  //   margin-left: auto
+  //   display: flex
+  //   justify-content: flex-end
+  //   .nav-item
+  //     margin: 0px 10px
+  //     padding: 10px
+  //     cursor: pointer
+  //     position: relative
+  //     z-index: 2
+  //     outline: none
+  //     user-select: none
+  //     transition: 0.2s $transition all
+  //     opacity: 0.7
+  //     background-image: linear-gradient(to right,#DA4453,#89216B)
+  //     -webkit-background-clip: text
+  //     -webkit-text-fill-color: transparent
+  //     filter: grayscale(100%)
+  //     &.current-page
+  //       .nav-item-text
+  //         filter: grayscale(100%)
+  //         opacity: 1
+  //     &:active
+  //       .nav-item-text
+  //         opacity: 1
+  //     &:hover
+  //       .nav-submenu
+  //         opacity: 1
+  //     .nav-submenu
+  //       position: absolute
+  //       display: flex
+  //       opacity: 0
 
 .social-media
   float: left
-  margin: 0px 10px
+  // margin: 0px 10px
   // margin-right: auto
   // display: flex
   // justify-items: center
@@ -106,18 +165,38 @@ h1
     canvas
       display: block
 .pages
-  margin-top: 30px
+  // margin-top: 10px
   .page
-    .menu
-      display: flex
-      .title
-        font-family: 'ffad-matro-regular'
-        font-size: 30px
-        opacity: 0.7
-        transform: scale(0.7)
-      &.current
-        transform: scale(1)
-        opacity: 1
-        background-image: linear-gradient(to right,#55e5fd,#7155fe,#f31d9e)
-        -webkit-background-clip: text
-        -webkit-text-fill-color: transparent
+    display: none
+    &.current
+      display: block
+    .title
+      font-size: 26px
+      font-family: 'ffad-matro-regular'
+      background-image: linear-gradient(to right,#55e5fd,#7155fe,#f31d9e)
+      -webkit-background-clip: text
+      -webkit-text-fill-color: transparent
+    // .menu
+    //   display: flex
+    //   .menu-item
+    //     font-family: 'ffad-matro-regular'
+    //     font-size: 26px
+    //     opacity: 0.7
+    //     transform: scale(0.7)
+    //     user-select: none
+    //     padding: 10px
+    //     cursor: pointer
+    //     transition: 0.4s $transition all
+    //     // background-image: linear-gradient(to right, $darkest, $darkest)
+    //     background-image: linear-gradient(to right,#55e5fd,#7155fe,#f31d9e)
+    //     filter: grayscale(100%) brightness(50%)
+    //     -webkit-background-clip: text
+    //     -webkit-text-fill-color: transparent
+    //     &.current
+    //       filter: grayscale(0%)
+    //       transform: scale(1)
+    //       opacity: 1
+    //     &.left
+    //       transform: scale(0.7) translateX(-20px)
+    //     &.right
+    //       transform: scale(0.7) translateX(20px)
