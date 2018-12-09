@@ -1,0 +1,45 @@
+doctype html
+html
+  head
+    title='KH - '+title
+    //- font
+    link(href="https://fonts.googleapis.com/css?family=Rubik:400", rel="stylesheet")
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Marck+Script" rel="stylesheet">
+    link(rel='stylesheet' type='text/css' href='/index.sass')
+  body
+    .header
+      img.logo(src='/img/kh-logo.png')
+      .nav-bar
+        .nav-item(tabindex='0' class=(page === 'work' ? 'current-page' : '') data-page='work') Work
+        .nav-item(tabindex='0' class=(page === 'for-sale' ? 'current-page' : '') data-page='for-sale') For Sale
+        .nav-item(tabindex='0' class=(page === 'contact' ? 'current-page' : '') data-page='contact') Contact
+      .social-media
+        a.twitter(target="_blank" title="Twitter" href="https://twitter.com/SpectralKH")
+          include img/twitter.svg
+        //- a.discord.has-popup(title="Discord")
+        //-   include img/discord.svg
+        //-   .popup.hidden KH#6425
+        a.youtube(target="_blank" title="YouTube" href="https://youtube.com/SpectralKH")
+          include img/youtube.svg
+        a.instagram(target="_blank" title="Instagram" href="https://www.instagram.com/spckh/")
+          include img/instagram.svg
+        a.github(target="_blank" title="GitHub" href="https://github.com/SpectralKH")
+          include img/github.svg
+        //- a.facebook(target="_blank" title="Facebook" href="https://www.facebook.com/SpectralKH")
+        //-   include img/facebook.svg
+        //- a.email.has-popup(title="Email")
+        //-   include img/email.svg
+        //-   .popup.hidden kasperkh.kh@gmail.com
+        //- a.soundcloud(target="_blank" title="SoundCloud" href="https://soundcloud.com/SpectralKH")
+        //-   include img/soundcloud.svg
+    .pages
+      .page.work
+        .menu
+          h1.title Video
+          h1.title Art
+          h1.title Synctan
+          h1.title Lacuna
+          h1.title Development
+      .page.for-sale
+      .page.contact
+    script(src='/js/index.js')

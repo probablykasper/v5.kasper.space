@@ -93,8 +93,8 @@ h1
     &:hover svg
       opacity: 1
 .canvas-container
-    position: absolute
-    top: 0px
+    position: fixed
+    bottom: -130px
     left: 0px
     z-index: -1
     width: 100%
@@ -106,11 +106,18 @@ h1
     canvas
       display: block
 .pages
-  margin-top: 50px
+  margin-top: 30px
   .page
-    .title
-      font-family: 'ffad-matro-regular'
-      font-size: 40px
-      background-image: linear-gradient(to right,#55e5fd,#7155fe,#f31d9e)
-      -webkit-background-clip: text
-      -webkit-text-fill-color: transparent
+    .menu
+      display: flex
+      .title
+        font-family: 'ffad-matro-regular'
+        font-size: 30px
+        opacity: 0.7
+        transform: scale(0.7)
+      &.current
+        transform: scale(1)
+        opacity: 1
+        background-image: linear-gradient(to right,#55e5fd,#7155fe,#f31d9e)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent

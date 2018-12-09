@@ -101,31 +101,17 @@ function animate() {
 
 }
 
-camera.position.set(0,0,1200);
-window.camera = camera
-const defaultCanvasY = -125
-window.container = container
-container.style.transform = `translateY(${defaultCanvasY}px)`
+const defaultCanvasY = 0
+const defaultCameraPos = 250
+camera.position.set(0,defaultCameraPos,1200);
+container.style.transform = `translateY(${defaultCanvasY-0.1*document.documentElement.scrollTop}px)`
 document.addEventListener('scroll', (e) => {
-	// console.log(e)
 	let yValue = e.target.scrollingElement.scrollTop
-	// let yValue = e.pageY/document.documentElement.clientHeight - 0.5
-	// let xValue = e.pageX/document.documentElement.clientWidth - 0.5
-	// if (yValue > 150) yValue = 150
-	// console.log(yValue)
-	// camera.rotation.set(yValue/30,xValue/10,-xValue/10);
-	console.log(yValue)
-	camera.position.setY(120+1*yValue);
-	container.style.transform = `translateY(${defaultCanvasY-0.4*yValue}px)`
+	camera.position.setY(defaultCameraPos+1*yValue);
+	container.style.transform = `translateY(${defaultCanvasY-0.1*yValue}px)`
 })
-setInterval(() => {
-	// camera.rotation.set(new Date().valueOf()%10000*0.001,0,0);
-}, 10)
 
 function render() {
-	// camera.position.set(0,355,122);
-	// new Date().valueOf() % 10
-	// camera.position.set(0,150,722);
 
 	var i = 0;
 

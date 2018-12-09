@@ -7,7 +7,7 @@ const buildDestFiles = 'build/**/*'
 
 const deploy = 'docs'
 
-require('clarify') // hides nodecore from stack trace
+// require('clarify') // hides nodecore from stack trace
 const gulp = require('gulp')
 const del = require('del')
 
