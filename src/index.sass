@@ -1,0 +1,101 @@
+$darkest: #14161D
+$dark-bg: #434756
+$selection-color: #ffffff
+$selection-bg-color: #6273D8
+$transition: cubic-bezier(0.4, 0.0, 0.2, 1.0)
+
+::selection
+    color: $selection-color
+    background-color: $selection-bg-color
+body
+  font-family: "Rubik", sans-serif
+  margin: 0px
+  width: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+a
+  text-decoration: none
+.header
+  width: 1000px
+  max-width: 100%
+  align-items: center
+  display: flex
+  .logo
+    width: 70px
+    height: 70px
+    display: block
+    margin: 30px
+    margin-right: auto
+  .right-container
+    .nav-bar
+      margin-left: auto
+      display: flex
+      justify-content: flex-end
+      .nav-item
+        margin: 20px
+        padding: 10px
+.social-media
+  float: left
+  display: grid
+  justify-items: center
+  align-items: center
+  grid-gap: 20px
+  grid-template-columns: repeat(8, 1fr)
+  justify-content: space-around
+  height: 50px
+  width: 700px
+  max-width: 100%
+  a
+    cursor: pointer
+    position: relative
+    user-select: none
+    svg
+      padding: 10px
+      display: block
+      pointer-events: none
+      width: 20px
+      height: 20px
+      fill: $dark-bg
+      opacity: 0.8
+    &:hover svg
+      opacity: 1
+    &.discord input
+      width: 70px
+    &.email input
+      width: 170px
+    &.has-popup
+      .popup
+        user-select: text
+        display: block
+        text-align: center
+        font-family: "Rubik", sans-serif
+        position: absolute
+        font-size: 14px
+        border: none
+        outline: none
+        top: 100%
+        left: 50%
+        padding: 8px 16px
+        color: $darkest
+        background-color: transparent
+        // transform: translate(-50%, -7px)
+        transform: translate(-50%, 0px)
+        cursor: text
+        transition: 0.2s $transition all
+        &.hidden
+          // transform: translate(calc(-50% - 0px), calc(-7px - 10px))
+          pointer-events: none
+          opacity: 0
+.canvas-container
+    position: absolute
+    top: 50px
+    left: 0px
+    z-index: -1
+    width: 100%
+    transform: rotate(180deg)
+    transition: 1s $transition opacity
+    &.hidden
+      opacity: 0
+    canvas
+      display: block

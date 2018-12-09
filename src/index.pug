@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    title KH
+    //- font
+    link(href="https://fonts.googleapis.com/css?family=Rubik:400", rel="stylesheet")
+    link(rel='stylesheet' type='text/css' href='/index.sass')
+  body
+    .header
+      img.logo(src='/img/kh-logo.png')
+      .right-container
+        .nav-bar
+          .nav-item.work Work
+          .nav-item.shop For Sale
+          .nav-item.shop Contact
+    .social-media
+      a.twitter(target="_blank" title="Twitter" href="https://twitter.com/SpectralKH")
+        include img/twitter.svg
+      a.discord.has-popup(title="Discord")
+        include img/discord.svg
+        .popup.hidden KH#6425
+      a.youtube(target="_blank" title="YouTube" href="https://youtube.com/SpectralKH")
+        include img/youtube.svg
+      a.instagram(target="_blank" title="Instagram" href="https://www.instagram.com/spckh/")
+        include img/instagram.svg
+      a.github(target="_blank" title="GitHub" href="https://github.com/SpectralKH")
+        include img/github.svg
+      a.facebook(target="_blank" title="Facebook" href="https://www.facebook.com/SpectralKH")
+        include img/facebook.svg
+      a.email.has-popup(title="Email")
+        include img/email.svg
+        .popup.hidden kasperkh.kh@gmail.com
+      a.soundcloud(target="_blank" title="SoundCloud" href="https://soundcloud.com/SpectralKH")
+        include img/soundcloud.svg
+    .pages
+    script(src='/js/index.js')
