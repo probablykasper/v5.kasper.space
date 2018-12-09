@@ -1,8 +1,21 @@
-// window.THREE = require('./three.min.js')
-// require('./canvas-renderer-and-projector.min.js')
-// require('./bg.js')
+window.THREE = require('./three.min.js')
+require('./canvas-renderer-and-projector.min.js')
+require('./bg.js')
 
-console.log(location.href.includes('/synctan'))
+// pages
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('nav-item')) {
+    document.querySelector('.current-page').classList.remove('current-page')
+    e.target.classList.add('current-page')
+  }
+})
+if (location.href.includes('/work')) {
+  document.querySelector('.nav-item.work').classList.add('current-page')
+} else if (location.href.includes('/for-sale')) {
+  document.querySelector('.nav-item.for-sale').classList.add('current-page')
+} else if (location.href.includes('/contact')) {
+  document.querySelector('.nav-item.contact').classList.add('current-page')
+}
 
 // social media popups
 document.addEventListener('click', function (e) {

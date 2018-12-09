@@ -1,8 +1,16 @@
+// linear-gradient(to right,#FF416C,#FF4B2B)
 $darkest: #14161D
 $dark-bg: #434756
 $selection-color: #ffffff
 $selection-bg-color: #6273D8
 $transition: cubic-bezier(0.4, 0.0, 0.2, 1.0)
+
+@font-face
+    font-family: 'ffad-matro-regular'
+    src: url('/ffad-matro/ffad_matro-webfont.eot')
+    src: url('/ffad-matro/ffad_matro-webfont.eot?#iefix') format('embedded-opentype'), url('/ffad-matro/ffad_matro-webfont.woff2') format('woff2'), url('/ffad-matro/ffad_matro-webfont.woff') format('woff'), url('/ffad-matro/ffad_matro-webfont.ttf') format('truetype'), url('/ffad-matro/ffad_matro-webfont.svg#ffad_matroregular') format('svg')
+    font-weight: normal
+    font-style: normal
 
 ::selection
     color: $selection-color
@@ -14,44 +22,68 @@ body
   display: flex
   flex-direction: column
   align-items: center
+  height: 2000px
 a
   text-decoration: none
+  color: $darkest
+h1
+  margin: 0px
 .header
   width: 1000px
+  margin: 30px
   max-width: 100%
   align-items: center
   display: flex
   .logo
-    width: 70px
-    height: 70px
+    width: 50px
+    height: 50px
     display: block
-    margin: 30px
+    // margin: 30px
     margin-right: auto
-  .right-container
-    .nav-bar
-      margin-left: auto
-      display: flex
-      justify-content: flex-end
-      .nav-item
-        margin: 20px
-        padding: 10px
+  .nav-bar
+    font-family: 'ffad-matro-regular'
+    margin-left: auto
+    display: flex
+    justify-content: flex-end
+    .nav-item
+      margin: 0px 10px
+      padding: 10px
+      cursor: pointer
+      position: relative
+      z-index: 2
+      outline: none
+      user-select: none
+      transition: 0.2s $transition all
+      opacity: 0.5
+      &.current-page
+        background-image: linear-gradient(to right,#DA4453,#89216B)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+      &:active
+        opacity: 1
+
 .social-media
   float: left
-  display: grid
-  justify-items: center
-  align-items: center
-  grid-gap: 20px
-  grid-template-columns: repeat(8, 1fr)
-  justify-content: space-around
-  height: 50px
-  width: 700px
-  max-width: 100%
+  margin: 0px 10px
+  // margin-right: auto
+  // display: flex
+  // justify-items: center
+  // align-items: center
+  // grid-gap: 10px
+  // grid-template-columns: repeat(8, 1fr)
+  // justify-content: space-around
+  // height: 50px
+  // width: 300px
+  // max-width: 100%
   a
+    // margin: 2px
+    display: block
     cursor: pointer
     position: relative
     user-select: none
+    float: left
     svg
-      padding: 10px
+      padding: 8px
       display: block
       pointer-events: none
       width: 20px
@@ -60,42 +92,25 @@ a
       opacity: 0.8
     &:hover svg
       opacity: 1
-    &.discord input
-      width: 70px
-    &.email input
-      width: 170px
-    &.has-popup
-      .popup
-        user-select: text
-        display: block
-        text-align: center
-        font-family: "Rubik", sans-serif
-        position: absolute
-        font-size: 14px
-        border: none
-        outline: none
-        top: 100%
-        left: 50%
-        padding: 8px 16px
-        color: $darkest
-        background-color: transparent
-        // transform: translate(-50%, -7px)
-        transform: translate(-50%, 0px)
-        cursor: text
-        transition: 0.2s $transition all
-        &.hidden
-          // transform: translate(calc(-50% - 0px), calc(-7px - 10px))
-          pointer-events: none
-          opacity: 0
 .canvas-container
     position: absolute
-    top: 50px
+    top: 0px
     left: 0px
     z-index: -1
     width: 100%
-    transform: rotate(180deg)
+    // transform: rotate(180deg)
     transition: 1s $transition opacity
+    // opacity: 0.4
     &.hidden
       opacity: 0
     canvas
       display: block
+.pages
+  margin-top: 50px
+  .page
+    .title
+      font-family: 'ffad-matro-regular'
+      font-size: 40px
+      background-image: linear-gradient(to right,#55e5fd,#7155fe,#f31d9e)
+      -webkit-background-clip: text
+      -webkit-text-fill-color: transparent

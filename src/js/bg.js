@@ -1,8 +1,8 @@
 // minOnSave: true, minifier: uglify-js
-var canvasHeight = 300; // originally 400
+var canvasHeight = 500; // originally 400
 var SEPARATION = 100;
-var AMOUNTX = 60; // originally 80
-var AMOUNTY = 30; // originally 80
+var AMOUNTX = 80; // originally 80
+var AMOUNTY = 10; // originally 80
 var particleColor = "#3f3f3f";
 
 var container;
@@ -39,14 +39,13 @@ function init() {
 
 	particles = new Array();
 
-	var PI2 = Math.PI * 2;
-	var material = new THREE.SpriteCanvasMaterial( {
+	window. material = new THREE.SpriteCanvasMaterial( {
 
 		color: particleColor,
 		program: function ( context ) {
 
 			context.beginPath();
-			context.arc( 0, 0, 0.5, 0, PI2, true );
+			context.arc( 0, 0, 0.5, 0, 2*Math.PI, true );
 			context.fill();
 
 		}
@@ -72,10 +71,6 @@ function init() {
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.setSize( getCanvasContainerWidth(), canvasHeight );
 	container.appendChild( renderer.domElement );
-
-
-
-	//
 
 	window.addEventListener( 'resize', onWindowResize, false );
 
@@ -106,10 +101,31 @@ function animate() {
 
 }
 
+camera.position.set(0,0,1200);
+window.camera = camera
+const defaultCanvasY = -125
+window.container = container
+container.style.transform = `translateY(${defaultCanvasY}px)`
+document.addEventListener('scroll', (e) => {
+	// console.log(e)
+	let yValue = e.target.scrollingElement.scrollTop
+	// let yValue = e.pageY/document.documentElement.clientHeight - 0.5
+	// let xValue = e.pageX/document.documentElement.clientWidth - 0.5
+	// if (yValue > 150) yValue = 150
+	// console.log(yValue)
+	// camera.rotation.set(yValue/30,xValue/10,-xValue/10);
+	console.log(yValue)
+	camera.position.setY(120+1*yValue);
+	container.style.transform = `translateY(${defaultCanvasY-0.4*yValue}px)`
+})
+setInterval(() => {
+	// camera.rotation.set(new Date().valueOf()%10000*0.001,0,0);
+}, 10)
+
 function render() {
-
-
-	camera.position.set(0,355,122);
+	// camera.position.set(0,355,122);
+	// new Date().valueOf() % 10
+	// camera.position.set(0,150,722);
 
 	var i = 0;
 
