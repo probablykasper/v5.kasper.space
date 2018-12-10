@@ -1,52 +1,30 @@
 doctype html
 html
   head
-    title='KH - '+title
+    title=title
     //- font
     link(href="https://fonts.googleapis.com/css?family=Rubik:400", rel="stylesheet")
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Marck+Script" rel="stylesheet">
     link(rel='stylesheet' type='text/css' href='/index.sass')
   body
     .header
-      img.logo(src='/img/kh-logo.png')
-      .menu
-        .nav-item
-          .text(tabindex=0) Work
+      a.noreload.kh-logo(href='/')
+        img.kh-logo(src='/img/kh-logo.png')
+      .nav-bar
+        .nav-item(tabindex=0)
+          a.noreload.text(href='/work') Work
           .submenu
-            .nav-item.in-submenu.text(tabindex=0) Video
-            .nav-item.in-submenu.text(tabindex=0) Art
-            .nav-item.in-submenu.text(tabindex=0) Development
-        .nav-item
-          .text(tabindex=0) For Sale
-          .submenu
-            .nav-item.in-submenu.text(tabindex=0) Video
-            .nav-item.in-submenu.text(tabindex=0) Art
-        .nav-item
-          .text(tabindex=0) Synctan
-        .nav-item
-          .text(tabindex=0) Lacuna
-        .nav-item
-          .text(tabindex=0) Contact
-      
-      
-      
-        //- .nav-item(class=(page === 'work' ? 'current-page' : '') data-page='work')
-        //-   .nav-item-text Work
-        //-   .nav-submenu
-        //-     .nav-item Video
-        //-     .nav-item Art
-        //-     .nav-item Development
-        //- .nav-item(tabindex='0' class=(page === 'for-sale' ? 'current-page' : '') data-page='for-sale')
-        //-   .nav-item-text For Sale
-        //-   .nav-submenu
-        //-     .nav-item Video
-        //-     .nav-item Art
-        //- .nav-item(tabindex='0' class=(page === 'synctan' ? 'current-page' : '') data-page='synctan')
-        //-   .nav-item-text Synctan
-        //- .nav-item(tabindex='0' class=(page === 'lacuna' ? 'current-page' : '') data-page='lacuna')
-        //-   .nav-item-text Lacuna
-        //- .nav-item(tabindex='0' class=(page === 'contact' ? 'current-page' : '') data-page='contact')
-        //-   .nav-item-text Contact
+            a.nav-item.in-submenu.text(tabindex=0 href='/work/video') Video
+            a.nav-item.in-submenu.text(tabindex=0 href='/work/art') Art
+            a.nav-item.in-submenu.text(tabindex=0 href='/work/development') Development
+        .nav-item(tabindex=0)
+          a.noreload.text(href='/for-sale') For Sale
+        .nav-item(tabindex=0)
+          a.noreload.text(href='/synctan') Synctan
+        .nav-item(tabindex=0)
+          a.noreload.text(href='/lacuna') Lacuna
+        .nav-item(tabindex=0)
+          a.noreload.text(href='/contact') Contact
       .social-media
         a.twitter(target="_blank" title="Twitter" href="https://twitter.com/SpectralKH")
           include img/twitter.svg
@@ -67,16 +45,33 @@ html
         //- a.soundcloud(target="_blank" title="SoundCloud" href="https://soundcloud.com/SpectralKH")
         //-   include img/soundcloud.svg
     .pages
-      .page.video
+      .page(data-page='/')
+        h1.title Kasper Henningsen
+        p.description There could be an awesome
+      .page(data-page='/work')
+        h1.title Work
+        p.description There could be an awesome
+      .page(data-page='/work/video')
         h1.title Video
-      .page.art
+        p.description There could be an awesome
+      .page(data-page='/work/art')
         h1.title Art
-      .page.synctan
-        h1.title Synctan
-      .page.lacuna
-        h1.title Lacuna
-      .page.development
+        p.description There could be an awesome
+      .page(data-page='/work/development')
         h1.title Development
-      .page.for-sale
-      .page.contact
+        p.description There could be an awesome
+
+      .page(data-page='/for-sale')
+        h1.title For Sale
+        p.description There could be an awesome
+
+      .page(data-page='/synctan')
+        h1.title Synctan
+        p.description There could be an awesome
+      .page(data-page='/lacuna')
+        h1.title Lacuna
+        p.description There could be an awesome
+      .page(data-page='/contact')
+        h1.title Contact
+        p.description There could be an awesome
     script(src='/js/index.js')
