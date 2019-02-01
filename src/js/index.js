@@ -13,12 +13,13 @@ function openPage(newPage, title) {
 
 let pathname = location.pathname
 if (pathname.length > 1 && pathname.endsWith('/')) pathname = pathname.slice(0,-1)
+console.log({page:pathname})
 history.replaceState({page:pathname}, document.title)
 document.addEventListener('click', (e) => {
   let el = e.target
   while (el.parentElement && el.tagName !== 'A') el = el.parentElement
   
-  if (el.tagName === 'A' && history.pushState) {
+  if (el.tagName === 'A' && el.classList.contains('noreload') && history.pushState) {
     e.preventDefault()
     // deselect current page from nav bar
     const navItems = document.querySelectorAll('.nav-bar .current')
@@ -37,7 +38,7 @@ document.addEventListener('click', (e) => {
         const parentText = parentNavItem.children[0].innerText
         title = el.innerText+' - '+el.parentElement.parentElement.innerText+' | KH'
       }
-      console.log(newPage)
+      console.log({page:newPage})
       window.history.pushState({page:newPage}, title, newPage)
       openPage(newPage, title)
     } else {
